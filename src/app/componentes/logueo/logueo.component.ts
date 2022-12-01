@@ -16,20 +16,18 @@ export class LogueoComponent implements OnInit {
   ngOnInit(): void {
     this.controlUsuario = new FormControl('', [
       Validators.minLength(3),
-      Validators.pattern('^[A-Za-z0-9_]+$'),
       Validators.required
     ]);
 
     this.controlContrasenya = new FormControl('', [
       Validators.minLength(7),
-      Validators.pattern('[A-Z]+'),
-      Validators.pattern('[a-z]+'),
-      Validators.pattern('[0-9]+'),
-      Validators.pattern('[@*]+'),
-      Validators.pattern('^[A-Za-z0-9@*]+$'),
+      Validators.pattern('(?=.*[@*])(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).+'),
       Validators.required
-    ])
-  }
+    ]);
 
-  
+    this.miFormulario = new FormGroup({
+      controlUsuario: this.controlUsuario,
+      controlContrasenya: this.controlContrasenya
+    });
+  }
 }
