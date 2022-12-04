@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'PMDMO-AppCompleta1T';
+  title = 'Página principal';
+
+  constructor() {
+    document.body.className = "bodyOscuro";
+  }
+
+  cambiarModo(modo: Number) {
+    if (modo == 0) {
+      document.body.className = "bodyClaro";
+    } else {
+      document.body.className = "bodyOscuro";
+    }
+  }
 }

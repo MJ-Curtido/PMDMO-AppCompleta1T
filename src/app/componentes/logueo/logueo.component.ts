@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router, TitleStrategy } from '@angular/router';
+import { ServicioService } from 'src/app/modelo/servicio.service';
 
 @Component({
   selector: 'app-logueo',
@@ -11,7 +13,7 @@ export class LogueoComponent implements OnInit {
   controlUsuario!: FormControl;
   controlContrasenya!: FormControl;
 
-  constructor() {  }
+  constructor(protected serv: ServicioService, private router: Router) {  }
 
   ngOnInit(): void {
     this.controlUsuario = new FormControl('', [
@@ -29,5 +31,11 @@ export class LogueoComponent implements OnInit {
       controlUsuario: this.controlUsuario,
       controlContrasenya: this.controlContrasenya
     });
+  }
+
+  comprobarInicioSesion(nomUsuario: HTMLInputElement, contrasenya: HTMLInputElement) {
+    if (this.serv.comprobarInicioSesion(nomUsuario.value, contrasenya.value)) {
+      this.router.navigate(['blog']);
+    }
   }
 }

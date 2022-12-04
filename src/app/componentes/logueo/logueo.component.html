@@ -12,7 +12,13 @@
           <form [formGroup]="miFormulario" novalidate>
             <!-- Usuario input -->
             <div class="form-outline mb-4">
-              <input formControlName="controlUsuario" type="text" id="form3Example3" class="form-control" />
+              <input
+                #inputUsuario
+                formControlName="controlUsuario"
+                type="text"
+                id="form3Example3"
+                class="form-control"
+              />
               <label class="form-label" for="form3Example3"
                 >Nombre de usuario</label
               >
@@ -20,16 +26,41 @@
 
             <!-- Password input -->
             <div class="form-outline mb-4">
-              <input formControlName="controlContrasenya" type="password" id="form3Example4" class="form-control" />
+              <input
+                #inputContrasenya
+                formControlName="controlContrasenya"
+                type="password"
+                id="form3Example4"
+                class="form-control"
+              />
               <label class="form-label" for="form3Example4">Contraseña</label>
             </div>
 
-            <label id="err" *ngIf="(controlUsuario.invalid || controlContrasenya.invalid) && (controlUsuario.dirty || controlContrasenya.dirty)" class="form-check-label">Campos incorrectos.</label>
+            <label
+              class="err"
+              *ngIf="
+                (controlUsuario.invalid || controlContrasenya.invalid) &&
+                (controlUsuario.dirty || controlContrasenya.dirty)
+              "
+              class="form-check-label"
+              >Campos incorrectos.</label
+            >
 
-            <br><br>
+            <label
+              class="err"
+              *ngIf=""
+              class="form-check-label"
+              >Usuario y/o contraseña incorrectos.</label
+            >
+
+            <br /><br />
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4">
+            <button
+              (click)="comprobarInicioSesion(inputUsuario, inputContrasenya)"
+              type="submit"
+              class="btn btn-primary btn-block mb-4"
+            >
               Iniciar Sesión
             </button>
           </form>
