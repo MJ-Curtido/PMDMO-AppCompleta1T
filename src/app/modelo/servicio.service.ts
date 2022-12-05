@@ -6,6 +6,7 @@ import { Usuario } from './usuario';
 })
 export class ServicioService {
   listaUsuarios: Usuario[];
+  iniciado: Boolean;
 
   constructor() {
     this.listaUsuarios = [
@@ -13,6 +14,7 @@ export class ServicioService {
       new Usuario('pablo', 'Dam1234@'),
       new Usuario('marta', 'Dam1234@'),
     ];
+    this.iniciado = false;
   }
 
   getListaUsuarios() {
@@ -49,9 +51,14 @@ export class ServicioService {
     for (let i = 0; i < this.listaUsuarios.length && !correcto; i++) {
       if (this.listaUsuarios[i].getNomUsuario() == nomUsuario && this.listaUsuarios[i].getContrasenya() == contrasenya) {
         correcto = true;
+        this.iniciado = true;
       }
     }
 
     return correcto;
+  }
+
+  getIniciado() {
+    return this.iniciado;
   }
 }

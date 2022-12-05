@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { EstiloComponent } from './componentes/estilo/estilo.component';
 import { LogueoComponent } from './componentes/logueo/logueo.component';
 import { BlogComponent } from './componentes/blog/blog.component';
+import { GuardLogueoGuard } from './guards/guard-logueo.guard';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { BlogComponent } from './componentes/blog/blog.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    GuardLogueoGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
