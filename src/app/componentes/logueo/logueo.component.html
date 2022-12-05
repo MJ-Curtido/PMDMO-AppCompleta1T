@@ -37,19 +37,15 @@
             </div>
 
             <label
-              class="err"
               *ngIf="
                 (controlUsuario.invalid || controlContrasenya.invalid) &&
                 (controlUsuario.dirty || controlContrasenya.dirty)
               "
-              class="form-check-label"
+              class="err form-check-label"
               >Campos incorrectos.</label
             >
 
-            <label
-              class="err"
-              *ngIf=""
-              class="form-check-label"
+            <label *ngIf="incorrecto" class="err form-check-label"
               >Usuario y/o contraseña incorrectos.</label
             >
 
