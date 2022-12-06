@@ -6,24 +6,24 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./estilo.component.css'],
 })
 export class EstiloComponent implements OnInit {
-  @Output() enviarModo = new EventEmitter<Number>();
-  modo: Number; //0: claro  1: oscuro
+  @Output() enviarModo = new EventEmitter<Boolean>();
+  modo: Boolean;
   modoTxt: String;
 
   constructor() {
-    this.modo = 1;
+    this.modo = true;
     this.modoTxt = 'Modo Claro';
   }
 
   ngOnInit(): void {}
 
   cambiarModo() {
-    if (this.modo == 0) {
-      this.modo = 1;
+    if (this.modo) {
+      this.modo = false;
       this.modoTxt = "Modo Claro";
     }
     else {
-      this.modo = 0;
+      this.modo = true;
       this.modoTxt = "Modo Oscuro";
     }
     this.enviarModo.emit(this.modo);

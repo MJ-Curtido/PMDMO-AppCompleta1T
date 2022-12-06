@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServicioService } from './modelo/servicio.service';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +9,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Página principal';
 
-  constructor() {
+  constructor(protected serv: ServicioService) {
     document.body.className = "bodyOscuro";
   }
 
-  cambiarModo(modo: Number) {
-    if (modo == 0) {
+  cambiarModo(modo: Boolean) {
+    if (!modo) {
       document.body.className = "bodyClaro";
     } else {
       document.body.className = "bodyOscuro";
     }
+    this.serv.setModo(modo);
   }
 }

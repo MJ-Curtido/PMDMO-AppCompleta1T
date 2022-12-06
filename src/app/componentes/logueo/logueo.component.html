@@ -4,11 +4,25 @@
   <div class="p-5 bg-image imagenFondo"></div>
   <!-- Background image -->
 
-  <div class="card mx-4 mx-md-5 shadow-5-strong fondoForm">
+  <div
+    class="card mx-4 mx-md-5 shadow-5-strong fondoForm"
+    [ngClass]="{
+      divOscuro: getModo(),
+      divClaro: !getModo()
+    }"
+  >
     <div class="card-body py-5 px-md-5">
       <div class="row d-flex justify-content-center">
         <div class="col-lg-8">
-          <h2 class="fw-bold mb-5">Iniciar sesión</h2>
+          <h2
+            class="fw-bold mb-5"
+            [ngClass]="{
+              txtOscuro: getModo(),
+              txtClaro: !getModo()
+            }"
+          >
+            Iniciar sesión
+          </h2>
           <form [formGroup]="miFormulario" novalidate>
             <!-- Usuario input -->
             <div class="form-outline mb-4">
@@ -18,8 +32,18 @@
                 type="text"
                 id="form3Example3"
                 class="form-control"
+                [ngClass]="{
+                  txtOscuro: getModo(),
+                  txtClaro: !getModo()
+                }"
               />
-              <label class="form-label" for="form3Example3"
+              <label
+                class="form-label"
+                [ngClass]="{
+                  txtOscuro: getModo(),
+                  txtClaro: !getModo()
+                }"
+                for="form3Example3"
                 >Nombre de usuario</label
               >
             </div>
@@ -32,8 +56,20 @@
                 type="password"
                 id="form3Example4"
                 class="form-control"
+                [ngClass]="{
+                  txtOscuro: getModo(),
+                  txtClaro: !getModo()
+                }"
               />
-              <label class="form-label" for="form3Example4">Contraseña</label>
+              <label
+                class="form-label"
+                [ngClass]="{
+                  txtOscuro: getModo(),
+                  txtClaro: !getModo()
+                }"
+                for="form3Example4"
+                >Contraseña</label
+              >
             </div>
 
             <label

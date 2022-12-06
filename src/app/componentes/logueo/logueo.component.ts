@@ -36,6 +36,10 @@ export class LogueoComponent implements OnInit {
     });
   }
 
+  getModo() {
+    return this.serv.getModo();
+  }
+
   comprobarInicioSesion(
     nomUsuario: HTMLInputElement,
     contrasenya: HTMLInputElement

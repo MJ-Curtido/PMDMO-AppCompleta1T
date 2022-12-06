@@ -1,18 +1,18 @@
 <nav
   [ngClass]="{
     navbar: true,
-    'navbar-dark': modo == 1,
-    'bg-dark': modo == 1,
-    'navbar-light': modo == 0,
-    modoClaro: modo == 0
+    'navbar-dark': modo,
+    'bg-dark': modo,
+    'navbar-light': !modo,
+    modoClaro: !modo
   }"
 >
   <button
     type="button"
     [ngClass]="{
       btn: true,
-      'btn-light': modo == 1,
-      'btn-dark': modo == 0
+      'btn-light': modo,
+      'btn-dark': !modo
     }"
     (click)="cambiarModo()"
   >

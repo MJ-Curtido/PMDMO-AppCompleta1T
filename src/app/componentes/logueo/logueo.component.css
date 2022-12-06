@@ -4,6 +4,22 @@
   backdrop-filter: blur(30px);
 }
 
+.divOscuro {
+  background-color: rgb(83, 83, 83);
+}
+
+.divClaro {
+  background-color: white;
+}
+
+.txtOscuro {
+  color: white !important;
+}
+
+.txtClaro {
+  color: rgb(83, 83, 83) !important;
+}
+
 .imagenFondo {
   background-image: url("https://mdbootstrap.com/img/new/textures/full/171.jpg");
   height: 300px;

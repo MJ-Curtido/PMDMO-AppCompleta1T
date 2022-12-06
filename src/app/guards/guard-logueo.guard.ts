@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ServicioService } from '../modelo/servicio.service';
 
@@ -7,7 +7,7 @@ import { ServicioService } from '../modelo/servicio.service';
   providedIn: 'root'
 })
 export class GuardLogueoGuard implements CanActivate {
-  constructor(protected serv: ServicioService) { }
+  constructor(protected serv: ServicioService, public router: Router) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -16,6 +16,7 @@ export class GuardLogueoGuard implements CanActivate {
     if (this.serv.getIniciado()) {
       return true;
     } else {
+      this.router.navigate(['']);
       return false;
     }
   }
