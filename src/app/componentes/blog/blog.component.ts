@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServicioService } from 'src/app/modelo/servicio.service';
 
 @Component({
   selector: 'app-blog',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogComponent implements OnInit {
 
-  constructor() { }
+  constructor(protected serv: ServicioService) { }
 
   ngOnInit(): void {
   }
 
+  getModo() {
+    return this.serv.getModo();
+  }
 }

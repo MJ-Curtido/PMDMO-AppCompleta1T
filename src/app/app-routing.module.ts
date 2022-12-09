@@ -5,10 +5,10 @@ import { LogueoComponent } from './componentes/logueo/logueo.component';
 import { GuardLogueoGuard } from './guards/guard-logueo.guard';
 
 const routes: Routes = [
-  { path: '**', redirectTo: 'login', pathMatch: 'full' },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LogueoComponent },
-  { path: 'blog', component: BlogComponent, canActivate:[GuardLogueoGuard] }
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: 'login', component: LogueoComponent },
+  {path: 'blog', component: BlogComponent, canActivate: [GuardLogueoGuard]},
+  {path: '**', redirectTo: 'login'}
 ];
 
 @NgModule({

@@ -12,13 +12,14 @@ export class GuardLogueoGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
+    
     if (this.serv.getIniciado()) {
       return true;
-    } else {
-      this.router.navigate(['']);
-      return false;
     }
+
+    this.router.navigate(['login']);
+    return false;
+
   }
   
 }
