@@ -18,9 +18,18 @@ export class ServicioService {
       new Usuario('marta', 'Dam1234@'),
     ];
     this.listaNoticias = [
-      new Noticia('Sale Hollow Knight SilkSong', 'En Febrero sale el nuevo juego de plataformas que lo petó con sus inicios.'),
-      new Noticia('Desarrollo de Aplicaciones Multiplataforma (DAM)', 'DAM es uno de los grados que exigen más nivel y con un filtro que hace que los estudiantes que salen de ahí van muy preparados.'),
-      new Noticia('Patata', 'Mi ordenador es una patata con cables y va muy mal a la hora de hacer cualquier cosa, sobre todo con Android Studio.'),
+      new Noticia(
+        'Sale Hollow Knight SilkSong',
+        'En Febrero sale el nuevo juego de plataformas que lo petó con sus inicios.'
+      ),
+      new Noticia(
+        'Desarrollo de Aplicaciones Multiplataforma (DAM)',
+        'DAM es uno de los grados que exigen más nivel y con un filtro que hace que los estudiantes que salen de ahí van muy preparados.'
+      ),
+      new Noticia(
+        'Patata',
+        'Mi ordenador es una patata con cables y va muy mal a la hora de hacer cualquier cosa, sobre todo con Android Studio.'
+      ),
     ];
     this.iniciado = false;
     this.modo = true;
@@ -43,34 +52,39 @@ export class ServicioService {
   }
 
   setModo(modo: Boolean) {
-    return this.modo = modo;
+    return (this.modo = modo);
   }
 
-  anadirBroma(usuario: Usuario) {
-    let existe: Boolean = false;
+  anyadirNoticia(noticia: Noticia) {
+    this.listaNoticias.unshift(noticia);
+  }
 
-    for (let i = 0; i < this.listaUsuarios.length && !existe; i++) {
-      if (this.listaUsuarios[i].getNomUsuario() == usuario.getNomUsuario()) {
-        existe = true;
+  eliminarNoticia(noticia: Noticia) {
+    this.listaNoticias = this.listaNoticias.filter(
+      (noticiaServ) => noticiaServ.getId() !== noticia.getId()
+    );
+  }
+
+  getNoticia(id: String) {
+    let noticia: any = null;
+
+    for (let i = 0; i < this.listaNoticias.length && noticia == null; i++) {
+      if (this.listaNoticias[i].getId() == id) {
+        noticia = this.listaNoticias[i];
       }
     }
 
-    if (existe) {
-      this.listaUsuarios.unshift(usuario);
-    }
-  }
-
-  eliminarUsuarioServ(usuario: Usuario) {
-    this.listaUsuarios = this.listaUsuarios.filter(
-      (usuarioServ) => usuarioServ.getNomUsuario() !== usuario.getNomUsuario()
-    );
+    return noticia;
   }
 
   comprobarInicioSesion(nomUsuario: String, contrasenya: String) {
     let correcto: Boolean = false;
 
     for (let i = 0; i < this.listaUsuarios.length && !correcto; i++) {
-      if (this.listaUsuarios[i].getNomUsuario() == nomUsuario && this.listaUsuarios[i].getContrasenya() == contrasenya) {
+      if (
+        this.listaUsuarios[i].getNomUsuario() == nomUsuario &&
+        this.listaUsuarios[i].getContrasenya() == contrasenya
+      ) {
         correcto = true;
         this.iniciado = true;
       }

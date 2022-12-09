@@ -1,0 +1,20 @@
+.divOscuro {
+  background-color: rgb(83, 83, 83);
+}
+
+.divClaro {
+  background-color: white;
+}
+
+.txtOscuro {
+  color: white !important;
+}
+
+.txtClaro {
+  color: rgb(83, 83, 83) !important;
+}
+
+#imagenConstruccion {
+  width: 700px;
+  height: 500px;
+}

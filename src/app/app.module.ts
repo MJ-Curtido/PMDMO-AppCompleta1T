@@ -9,6 +9,7 @@ import { LogueoComponent } from './componentes/logueo/logueo.component';
 import { BlogComponent } from './componentes/blog/blog.component';
 import { GuardLogueoGuard } from './guards/guard-logueo.guard';
 import { NoticiaComponent } from './componentes/noticia/noticia.component';
+import { DetalleNoticiaComponent } from './componentes/detalle-noticia/detalle-noticia.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NoticiaComponent } from './componentes/noticia/noticia.component';
     EstiloComponent,
     LogueoComponent,
     BlogComponent,
-    NoticiaComponent
+    NoticiaComponent,
+    DetalleNoticiaComponent
   ],
   imports: [
     BrowserModule,

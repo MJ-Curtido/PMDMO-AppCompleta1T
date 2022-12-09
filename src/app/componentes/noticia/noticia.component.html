@@ -1,1 +1,39 @@
-<p>noticia works!</p>
+<div class="form-outline mb-4">
+  <h4
+    [ngClass]="{
+      txtOscuro: getModo(),
+      txtClaro: !getModo()
+    }"
+  >
+    {{ noticia.getTitulo() }}
+  </h4>
+  <p
+    [ngClass]="{
+      txtOscuro: getModo(),
+      txtClaro: !getModo()
+    }"
+  >
+    {{ noticia.getContenido() }}
+  </p>
+
+  <button
+    (click)="detallesNoticia()"
+    [ngClass]="{
+      btnOscuro: getModo(),
+      btnClaro: !getModo()
+    }"
+  >
+    Detalles
+  </button>
+  &nbsp;&nbsp;&nbsp;
+  <button
+    (click)="eliminarNoticia()"
+    [ngClass]="{
+      btnOscuro: getModo(),
+      btnClaro: !getModo()
+    }"
+  >
+    Eliminar
+  </button>
+</div>
+<br /><br />

@@ -1,0 +1,21 @@
+button {
+    border: rgb(68, 68, 255) solid 2px;
+    border-radius: 7px;
+    color: rgb(68, 68, 255);
+}
+
+.btnOscuro {
+    background-color: rgb(83, 83, 83);
+}
+
+.btnClaro {
+    background-color: white;
+}
+
+.txtOscuro {
+    color: white !important;
+  }
+  
+  .txtClaro {
+    color: rgb(83, 83, 83) !important;
+  }
