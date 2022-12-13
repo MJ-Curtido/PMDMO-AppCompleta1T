@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Noticia } from './noticia';
 import { Usuario } from './usuario';
 
@@ -10,6 +11,8 @@ export class ServicioService {
   private listaNoticias: Noticia[];
   private iniciado: Boolean;
   private modo: Boolean;
+  private _listaUsuarios$: BehaviorSubject<Usuario[]>;
+  private _listaNoticias$: BehaviorSubject<Noticia[]>;
 
   constructor() {
     this.listaUsuarios = [
@@ -17,6 +20,7 @@ export class ServicioService {
       new Usuario('pablo', 'Dam1234@'),
       new Usuario('marta', 'Dam1234@'),
     ];
+    this._listaUsuarios$ = new BehaviorSubject<Usuario[]>(this.listaUsuarios);
     this.listaNoticias = [
       new Noticia(
         'Sale Hollow Knight SilkSong',
@@ -31,16 +35,26 @@ export class ServicioService {
         'Mi ordenador es una patata con cables y va muy mal a la hora de hacer cualquier cosa, sobre todo con Android Studio.'
       ),
     ];
+    this._listaNoticias$ = new BehaviorSubject<Noticia[]>(this.listaNoticias);
+
     this.iniciado = false;
     this.modo = true;
   }
 
-  getListaNoticias() {
+  getListaNoticias(): Noticia[] {
     return [...this.listaNoticias];
   }
 
-  getListaUsuarios() {
+  getListaUsuarios(): Usuario[] {
     return [...this.listaUsuarios];
+  }
+
+  getListaNoticias$(): Observable<Noticia[]> {
+    return this._listaNoticias$.asObservable();
+  }
+
+  getListaUsuarios$(): Observable<Usuario[]> {
+    return this._listaUsuarios$.asObservable();
   }
 
   getUsuario(ind: number) {
@@ -57,12 +71,14 @@ export class ServicioService {
 
   anyadirNoticia(noticia: Noticia) {
     this.listaNoticias.unshift(noticia);
+    this._listaNoticias$.next([...this.listaNoticias]);
   }
 
   eliminarNoticia(noticia: Noticia) {
     this.listaNoticias = this.listaNoticias.filter(
       (noticiaServ) => noticiaServ.getId() !== noticia.getId()
     );
+    this._listaNoticias$.next([...this.listaNoticias]);
   }
 
   getNoticia(id: String) {
