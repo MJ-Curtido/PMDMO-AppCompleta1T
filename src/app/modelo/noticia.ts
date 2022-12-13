@@ -13,11 +13,11 @@ export class Noticia {
     this.fechaCreacion = new Date();
   }
 
-  getId() {
+  getId(): String {
     return this.id;
   }
 
-  getTitulo() {
+  getTitulo(): String {
     return this.titulo;
   }
 
@@ -25,7 +25,7 @@ export class Noticia {
     this.titulo = titulo;
   }
 
-  getContenido() {
+  getContenido(): String {
     return this.contenido;
   }
 
@@ -33,7 +33,7 @@ export class Noticia {
     this.contenido = contenido;
   }
 
-  getFechaCreacion() {
+  getFechaCreacion(): Date {
     return this.fechaCreacion;
   }
 

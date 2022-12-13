@@ -89,6 +89,7 @@
 
             <!-- Submit button -->
             <button
+              [disabled]="miFormulario.invalid"
               (click)="comprobarInicioSesion(inputUsuario, inputContrasenya)"
               type="submit"
               class="btn btn-primary btn-block mb-4"

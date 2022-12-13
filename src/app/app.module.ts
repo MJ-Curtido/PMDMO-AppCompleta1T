@@ -10,6 +10,7 @@ import { BlogComponent } from './componentes/blog/blog.component';
 import { GuardLogueoGuard } from './guards/guard-logueo.guard';
 import { NoticiaComponent } from './componentes/noticia/noticia.component';
 import { DetalleNoticiaComponent } from './componentes/detalle-noticia/detalle-noticia.component';
+import { PipeMayusculasPipe } from './pipe-mayusculas.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DetalleNoticiaComponent } from './componentes/detalle-noticia/detalle-n
     LogueoComponent,
     BlogComponent,
     NoticiaComponent,
-    DetalleNoticiaComponent
+    DetalleNoticiaComponent,
+    PipeMayusculasPipe
   ],
   imports: [
     BrowserModule,

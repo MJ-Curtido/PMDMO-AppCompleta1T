@@ -5,7 +5,7 @@
       txtClaro: !getModo()
     }"
   >
-    {{ noticia.getTitulo() }}
+    {{ noticia.getTitulo() | pipeMayusculas }}
   </h4>
   <p
     [ngClass]="{
